@@ -10,7 +10,10 @@ namespace AddressBook_System
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("welcome to Address Book System");
+            Console.WriteLine("welcome to Address Book System\n");
+
+            CreateContacts createContacts = new CreateContacts();
+            createContacts.Addressbook();
         }
     }
 }
