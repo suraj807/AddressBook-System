@@ -44,7 +44,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddressBookClass.cs" />
-    <Compile Include="CreateContacts.cs" />
+    <Compile Include="AddressBook.cs" />
+    <Compile Include="PersonInput.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
