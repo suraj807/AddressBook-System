@@ -48,7 +48,7 @@ namespace AddressBook_System
                 Console.WriteLine("Email : " + record.email);
                 Console.WriteLine("Zip code : " + record.zip);
                 Console.WriteLine("Phone Number : " + record.phoneNumber);
-               // i++;
+                i++;
             }
 
 
