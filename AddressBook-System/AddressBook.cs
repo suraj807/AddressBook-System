@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace AddressBook_System
 {
+
     internal class AddressBook
     {
         List<PersonInput> addressbook = new List<PersonInput>(); // Creating List having PersonInput Class Object Datatype
         public void AddRecords() // Creating class method to add Person Record in List
         {
             PersonInput input = new PersonInput(); // Creating a object of PersonInput Class
-            // Getting all the details from user and store it in PersonInput Class variales through object         
+            // Getting all the details from user and store it in PersonInput Class variales through object  
             Console.WriteLine("\nEnter your First Name : ");
             input.fName = Console.ReadLine();
             Console.WriteLine("Enter your Last Name : ");
@@ -51,14 +52,13 @@ namespace AddressBook_System
         }
         public void UpdateRecords(string fn, string ln) // Creating class method to update record which takes first name and last name as parameter
         {
-            foreach (var record in addressbook) // Accessing all the records of list one by one using foreach loop
+            foreach (var record in addressbook.ToList()) // Accessing all the records of list one by one using foreach loop
             {
                 if (record.fName == fn && record.lName == ln) // Checking that first name and last name provided by user is matching with Existing Reord or not
                 {
-
                     Console.WriteLine("\n\nWhich field you want to update : ");
                     Console.WriteLine("\n1:First Name\n2.Last Name\n3.Address\n4.City\n5.State\n6.Email\n7.Zip Code\n8.PhoneNumber\n9.Exit");
-                    Console.WriteLine("Enter your Choice : ");
+                    Console.WriteLine("\nEnter your Choice : ");
                     int ch = Convert.ToInt32(Console.ReadLine()); // Store the user choice which want to update 
                     switch (ch)
                     {
@@ -71,13 +71,13 @@ namespace AddressBook_System
                         case 2:
                             Console.WriteLine("\nEnter new last name : ");
                             string l = Console.ReadLine();
-                            record.lName = l; // Update the last name of record in address book
+                            record.lName = l;  // Update the last name of record in address book
                             Console.WriteLine("\nLast Name Updated Successfully");
                             break;
                         case 3:
                             Console.WriteLine("\nEnter new address : ");
                             string a = Console.ReadLine();
-                            record.address = a;// Update the address of record in address book
+                            record.address = a; // Update the address of record in address book
                             Console.WriteLine("\nAddress Updated Successfully");
                             break;
                         case 4:
@@ -111,13 +111,24 @@ namespace AddressBook_System
                             Console.WriteLine("\nPhone Number Updated Successfully");
                             break;
                         default:
-                            Console.WriteLine("Enter valid choice");
+                            Console.WriteLine("\nEnter valid choice");
                             break;
                     }
                 }
                 else
                 {
-                    Console.WriteLine("Your entered details not match with any records");
+                    Console.WriteLine("\nYour entered details not match with any records");
+                }
+            }
+        }
+        public void DeleteRecord(string fname)  // Creating class method to delete record which takes first name as parameter
+        {
+            foreach (var record in addressbook.ToList()) // Accessing all the records of list one by one using foreach loop
+            {
+                if (record.fName == fname)  // Checking that first name provided by user is matching with Existing Reord or not
+                {
+                    addressbook.Remove(record); // Deleting all the details of one user in Address Book
+                    Console.WriteLine("\nRecord Deleted Successfully");
                 }
             }
         }
